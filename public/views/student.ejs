@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Battlers</title>
+
+<link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Ubuntu" rel="stylesheet">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<style>
+body{
+	margin: 0;
+	padding: 0;
+	background: #efffff;
+}
+
+#head{
+	//background: #ffeeea;
+	background: #0D4F8B;
+	box-shadow: 0 0 7px -1px #111111;
+	height: 64px;
+}
+
+#logo{
+	padding: 15px;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold;
+	font-size: 22px;
+	margin-left: 20px;
+	color: #ffffff;
+	float: left;
+}
+
+#pp, #nn{
+	border-radius: 100%;
+	padding: 7px;
+	width: 30px;
+	height: 30px;
+	border: none;
+	background: #1C86EE;
+	color: #ffffff;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.options, #editor{
+	display: inline-block;
+}
+
+#editor {
+	margin-top: 11%;
+	margin-left: 1%;
+	width: 60%;
+	height: 40%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	font-size: 15px;
+	border: 1px solid black;
+}
+
+.options{
+	display: inline-block;
+	margin-top: 2%;
+	padding: 10px;
+	margin-left: 1%;
+}
+
+.sbtn{
+	display: inline-block;
+}
+
+#smbtbtn{
+	margin-top: 23%;
+	margin-left: 1%;
+	left: 0; right: 0;
+}
+
+select{
+	border-radius: 3px;
+	padding: 5px;
+	font-family: 'Lato', sans-serif;
+}
+
+#lg{
+	float: right;
+	margin-top: 13px;
+	margin-right: 25px;
+}
+
+#lg, #logout{
+	display: inline-block;
+}
+
+#wrapper{
+	clear: both;
+}
+
+#bootbtn{
+	background: #ffffff;
+	font-weight: bold;
+}
+
+#bootbtn:hover{
+	color: #0000ff;
+	background: #cdefff;
+}
+
+</style>
+
+<script>
+window.onload = fs;
+
+function fs(){
+	var cs = document.getElementById("cursize");
+	var editor = document.getElementById("editor");
+	var fonts = window.getComputedStyle(editor, null).getPropertyValue("font-size");
+	cs.innerHTML = parseInt(fonts);
+	//var el = document.getElementById('foo');
+	//var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
+}
+
+function chlang(){
+	lang = document.getElementById("slang");
+	sel = "ace/mode/"
+	value = lang.options[lang.selectedIndex].value;
+	sel = sel + value;
+	editor.session.setMode(sel);
+}
+
+function chtheme(){
+	lang = document.getElementById("stheme");
+	sel = "ace/theme/"
+	value = lang.options[lang.selectedIndex].value;
+	sel = sel + value;
+	editor.setTheme(sel);
+}
+
+function inc(){
+	var editor = document.getElementById("editor");
+	var cs = document.getElementById("cursize");
+	var style = window.getComputedStyle(editor, null).getPropertyValue("font-size");
+	var fontSize = parseFloat(style); 
+	editor.style.fontSize = (fontSize + 1) + 'px';
+	cs.innerHTML = fontSize + 1;
+}
+
+function dec(){
+	var editor = document.getElementById("editor");
+	var cs = document.getElementById("cursize");
+	var style = window.getComputedStyle(editor, null).getPropertyValue("font-size");
+	var fontSize = parseFloat(style); 
+	editor.style.fontSize = (fontSize - 1) + 'px';
+	cs.innerHTML = fontSize - 1;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div id = "head">
+<div id = "logo">Battlers</div>
+<div id = "lg"><a href = "/logout" class="btn btn-outline-primary" id = "bootbtn">Logout</a></div>
+</div>
+
+<div id = "wrapper">
+
+<div id = "prefer">
+
+<div class = "options" id = "lang">
+<select onchange = "chlang()" id = "slang">
+<option value = "c_cpp">C</option>
+<option value = "c_cpp">C++</option>
+<option value = "java">Java</option>
+<option value = "python">Python</option>
+<option value = "sql">SQL</option>
+<option value = "javascript">Javascript</option>
+</select>
+</div>
+
+
+<div class = "options" id = "theme">
+<select onchange = "chtheme()" id = "stheme">
+<option value = "chrome">Light</option>
+<option value = "twilight">Dark</option>
+</select>
+</div>
+
+<div class = "options" id = "fsize">
+<button onclick = "dec()" class = "sbtn" id = "pp">-</button>
+<div id = "cursize" class = "sbtn"></div>
+<button onclick = "inc()" class = "sbtn" id = "nn">+</button>
+</div>
+
+</div>
+
+<form action = "#" method = "POST" >
+<div id="editor" name = "code">//The code goes here...</div>
+
+<input type = "submit" value = "Push" id = "smbtbtn" class="btn btn-primary"/>
+
+</form>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.0/ace.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+var editor = ace.edit("editor");
+editor.setTheme("ace/theme/chrome");
+editor.session.setMode("ace/mode/c_cpp");
+</script>
+
+</body>
+
+</html>

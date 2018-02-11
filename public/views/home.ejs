@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Battlers</title>
+
+<link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Ubuntu" rel="stylesheet">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<style>
+body{
+	margin: 0;
+	padding: 0;
+	background: #efffff;
+}
+
+#head{
+	//background: #ffeeea;
+	background: #0D4F8B;
+	box-shadow: 0 0 7px -1px #111111;
+}
+
+#logo{
+	padding: 15px;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold;
+	font-size: 22px;
+	margin-left: 20px;
+	color: #ffffff;
+}
+
+#student{
+	margin-top: 10%;
+	margin-left: 16%;
+	padding: 20px;
+	width: 30%;
+	height: 60%;
+	//border: 1px solid #888888;
+	border-radius: 5px;
+	box-shadow: 0 0 7px -1px #888888;
+}
+
+#student input{
+	width: 70%;
+}
+
+#student, #faculty{
+	display: inline-block;
+	background: #ffffff;
+}
+
+#student_l, #faculty_l{
+	padding: 7px;
+	font-size: 19px;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold;
+}
+
+#faculty{
+	margin-top: 10%;
+	margin-right: 16%;
+	padding: 20px;
+	width: 30%;
+	height: 60%;
+	//border: 1px solid #888888;
+	border-radius: 5px;
+	box-shadow: 0 0 7px -1px #888888;
+}
+
+#faculty input{
+	width: 70%;
+}
+
+#forms{
+	background: #fffeee;
+}
+
+#student{
+	float: left;
+}
+
+#faculty{
+	float: right;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id = "head">
+<div id = "logo">Battlers</div>
+</div>
+
+<div id = "forms">
+
+<div id = "student">
+<center>
+<form id="loginform1" name="loginform1" action = "/login/student" method = "POST">
+ <div class="form-group">
+	<label id="student_l">Student login</label>
+    <input name="username1" type="text" class="form-control" id="username1" aria-describedby="emailHelp" placeholder="Enter your username" required>
+  </div>
+  <div class="form-group">
+    <input name="password1" type="password" class="form-control" id="password1" placeholder="Password" required>
+  </div>
+  <div class="form-check">
+  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
+</center>
+</div>
+
+<div id = "faculty">
+<center>
+<form id="loginform2" name="loginform2" action = "/login/faculty" method = "POST">
+ <div class="form-group">
+	<label id="faculty_l">Faculty login</label>
+    <input name="username2" type="text" class="form-control" id="username2" aria-describedby="emailHelp" placeholder="Enter your username" required>
+  </div>
+  <div class="form-group">
+    <input name="password2" type="password" class="form-control" id="password2" placeholder="Password" required>
+  </div>
+  <div class="form-check">
+  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
+</center>
+</div>
+</div>
+
+</body>
+
+</html>
